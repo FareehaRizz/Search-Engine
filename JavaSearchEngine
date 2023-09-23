@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class SearchEngine {
+    public List<String> search(String query) {
+        List<String> documents = List.of(
+            "The quick brown fox jumps over the lazy dog.",
+            "The five boxing wizards jump quickly.",
+            "Pack my box with five dozen liquor jugs."
+        );
+
+        List<String> results = new ArrayList<>();
+
+        for (String document : documents) {
+            if (document.contains(query)) {
+                results.add(document);
+            }
+        }
+
+        return results;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+      
+        SearchEngine searchEngine = new SearchEngine();
+          String query =sc.nextLine().trim();
+          if(query.isEmpty()){
+              System.out.println("search query is empty!");
+          }
+          else{
+        List<String> results = searchEngine.search(query);
+        System.out.println("Search results for \"" + query + "\":");
+        for (String result : results) {
+            System.out.println(result);
+        }
+          }
+          sc.close();
+    }
+}
